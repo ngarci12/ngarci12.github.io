@@ -7,12 +7,30 @@
     <title>Basics of HTML demo</title>
   </head>
   <body>
-    <p>Secret value is <b>9107862</b>.</p>
+    <p>Secret value is <b id="val-codeabbey"></b>.</p>
     <p>
       Read more at
-      <a href="http://www.codeabbey.com/index/task_view/basics-of-html"
+      <a href="https://www.codeabbey.com/index/task_view/dynamic-web-page"
         >this task</a
       >.
     </p>
   </body>
+  <script>
+    function setText(id,newvalue) {
+      var s = document.getElementById(id);
+      s.innerHTML = newvalue;
+    }
+    function getRand(secret) {
+      let random = Math.floor(Math.random()*secret*1000)
+      return random
+    }     
+    window.onload=function() {
+      let secret = 1421
+      let random = getRand(secret)
+      while(random % secret !== 0){
+        random = getRand(secret)
+      }
+      setText("val-codeabbey",random)
+    }
+  </script>
 </html>
