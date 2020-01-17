@@ -8,13 +8,10 @@ Random value is <span id="val-codeabbey"></span>
     let random = Math.floor(Math.random()*secret*1000)
     return random
   }     
-  window.onload=function() {
-    let secret = 1771
+  window.onload = function() {
+    let secret = 1779
     let random = getRand(secret)
-    while(random % secret !== 0){
-      random = getRand(secret)
-    }
-    setText("val-codeabbey",`Random value is ${random}`)
+    setText("val-codeabbey",`${random}`)
   }
 </script>
 
