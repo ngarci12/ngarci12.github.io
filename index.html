@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dynamic Web Page</title>
-  </head>
-  <body>
-    <p id="val-codeabbey"></p>
-  </body>
-  <script>
-    function setText(id,newvalue) {
-      var s = document.getElementById(id);
-      s.innerHTML = newvalue;
+Random value is <span id="val-codeabbey"></span>
+<script>
+  function setText(id,newvalue) {
+    var s = document.getElementById(id);
+    s.innerHTML = newvalue;
+  }
+  function getRand(secret) {
+    let random = Math.floor(Math.random()*secret*1000)
+    return random
+  }     
+  window.onload=function() {
+    let secret = 1771
+    let random = getRand(secret)
+    while(random % secret !== 0){
+      random = getRand(secret)
     }
-    function getRand(secret) {
-      let random = Math.floor(Math.random()*secret*1000)
-      return random
-    }     
-    window.onload=function() {
-      let secret = 1263
-      let random = getRand(secret)
-      while(random % secret !== 0){
-        random = getRand(secret)
-      }
-      setText("val-codeabbey",`Random value is ${random}`)
-    }
-  </script>
-</html>
+    setText("val-codeabbey",`${random}`)
+  }
+</script>
+
