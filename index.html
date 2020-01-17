@@ -4,16 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Basics of HTML demo</title>
+    <title>Dynamic Web Page</title>
   </head>
   <body>
-    <p>Random value is <b id="val-codeabbey"></b></p>
-    <p>
-      Read more at
-      <a href="https://www.codeabbey.com/index/task_view/dynamic-web-page"
-        >this task</a
-      >.
-    </p>
+    <p id="val-codeabbey"></p>
   </body>
   <script>
     function setText(id,newvalue) {
@@ -25,12 +19,12 @@
       return random
     }     
     window.onload=function() {
-      let secret = 1817
+      let secret = 1263
       let random = getRand(secret)
       while(random % secret !== 0){
         random = getRand(secret)
       }
-      setText("val-codeabbey",random)
+      setText("val-codeabbey",`Random value is ${random}`)
     }
   </script>
 </html>
